@@ -14,7 +14,8 @@
 // worry about it later.
 const IMPORTS =
 `from math import pi
-from qiskit import *
+from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile
+from qiskit_aer import Aer
 `;
 
 const QUANTUM_CIRCUIT =
@@ -51,7 +52,8 @@ const MEASURE =
 
 const LOCAL_SIMULATOR =
 `simulator = Aer.get_backend('qasm_simulator')
-result = execute(qc, backend = simulator, shots = %s).result()
+compiled_circuit = transpile(qc, simulator)
+result = simulator.run(compiled_circuit, shots=%s).result()
 counts = result.get_counts()
 print(counts)
 `;

@@ -94,10 +94,11 @@ module.exports = function(RED) {
       }
 
       if (shouldInitCircuit) {
-        logger.trace(node.id, 'Quantum register emitted circuit ready event');
-        circuitReadyEvent.emit('circuitReady', null);
-        state.setPersistent('registers', []);
-      } else {
+  state.setRuntime('circuitReady', true);
+  logger.trace(node.id, 'Quantum register emitted circuit ready event');
+  circuitReadyEvent.emit('circuitReady', null);
+  state.setPersistent('registers', []);
+} else {
         // wait for quantum circuit to be initialised
         logger.trace(node.id, 'Quantum register waiting for circuit to be ready');
         await circuitReady();

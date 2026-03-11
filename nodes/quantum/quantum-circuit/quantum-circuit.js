@@ -28,14 +28,21 @@ module.exports = function(RED) {
 
     state.setPersistent('quantumCircuitReadyEvent', quantumCircuitReady);
 
-    state.setPersistent('isCircuitReady', () => {
-      let event = state.get('quantumCircuitReadyEvent');
-      return new Promise((res, rej) => {
-        event.once('circuitReady', () => {
-          res();
-        });
-      });
+    state.setPersistent('quantumCircuitReadyEvent', quantumCircuitReady);
+
+state.setPersistent('isCircuitReady', () => {
+  if (state.get('circuitReady')) {
+    return Promise.resolve();
+  }
+
+  let event = state.get('quantumCircuitReadyEvent');
+  return new Promise((res, rej) => {
+    event.once('circuitReady', () => {
+      state.setRuntime('circuitReady', true);
+      res();
     });
+  });
+});
 
     // create an empty array in state to store register names
     state.setPersistent('registers', []);
@@ -45,6 +52,7 @@ module.exports = function(RED) {
     this.on('input', async function(msg, send, done) {
       logger.trace(node.id, 'Quantum circuit received input');
       state.resetRuntime();
+      state.setRuntime('circuitReady', false);
       let script = '';
       script += snippets.IMPORTS;
 
