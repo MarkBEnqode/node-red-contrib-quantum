@@ -54,10 +54,11 @@ module.exports = function(RED) {
       await shell.execute(script)
           .then(() => {
             if (shouldInitCircuit) {
-              logger.trace(node.id, 'Classical register emitted circuit ready event');
-              circuitReadyEvent.emit('circuitReady', null);
-              state.setPersistent('registers', []);
-            }
+  state.setRuntime('circuitReady', true);
+  logger.trace(node.id, 'Classical register emitted circuit ready event');
+  circuitReadyEvent.emit('circuitReady', null);
+  state.setPersistent('registers', []);
+}
             done();
           })
           .catch((err) => {

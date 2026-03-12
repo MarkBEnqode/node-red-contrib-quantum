@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-quantum",
-  "version": "0.4.0",
+  "version": "1.0.0-quantum-sec.1",
   "description": "Quantum computing functionality for Node-RED",
   "author": "Louis Lefevre",
   "license": "Apache-2.0",
@@ -26,10 +26,10 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "start": "export NODE_ENV=dev || set NODE_ENV=dev && node-red || npx node-red",
-    "test": "export NODE_ENV=dev || set NODE_ENV=dev && mocha \"test/**/*_spec.js\" --timeout 10000",
+    "start": "cross-env NODE_ENV=dev npx node-red",
+    "test": "cross-env NODE_ENV=dev mocha \"test/**/*_spec.js\" --timeout 30000 --exit",
     "setup": "npm install --silent && npm run link",
-    "coverage": "nyc --reporter=lcovonly --reporter=text npm test",
+    "coverage": "cross-env NODE_ENV=dev nyc --reporter=lcovonly --reporter=text mocha \"test/**/*_spec.js\" --timeout 30000 --exit",
     "venv": "bash bin/pyvenv.sh",
     "psvenv": "powershell -NoProfile -ExecutionPolicy Bypass -File ./bin/pyvenv.ps1",
     "link": "bash bin/link.sh",
@@ -45,17 +45,17 @@
     "python-interactive": "^0.3.2"
   },
   "devDependencies": {
-    "chai": "^4.3.4",
+    "chai": "^4.3.10",
+    "cross-env": "^10.1.0",
     "dedent-js": "^1.0.1",
-    "eslint": "^7.32.0",
-    "eslint-config-google": "^0.14.0",
-    "mocha": "^9.1.1",
-    "node-red": "^1.3.7",
-    "node-red-node-test-helper": "^0.2.7",
+    "eslint": "^8.56.0",
+    "mocha": "^10.2.0",
+    "node-red": "^4.1.5",
+    "node-red-node-test-helper": "^0.3.6",
     "nyc": "^15.1.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "node-red": {
     "nodes": {

@@ -32,17 +32,18 @@ describe('ScriptNode', function() {
 
     const givenInput = {payload: ''};
     const expectedOutput = dedent(
-        `from math import pi
-        from qiskit import *
-        qc = QuantumCircuit(3, 3)
+    `from math import pi
+    from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile
+    from qiskit_aer import Aer
+    qc = QuantumCircuit(3, 3)
 
-        qc.h(0)
+    qc.h(0)
 
-        qc.h(1)
+    qc.h(1)
 
-        qc.x(2)
+    qc.x(2)
 
-        qc.toffoli(0, 2, 1)`);
+    qc.ccx(0, 2, 1)`);
     testUtil.correctOutputReceived(flow, givenInput, expectedOutput, done);
   });
 
@@ -56,14 +57,15 @@ describe('ScriptNode', function() {
 
     const givenInput = {payload: ''};
     const expectedOutput = dedent(
-        `from math import pi
-        from qiskit import *
-        
-        qr0 = QuantumRegister(2, "quantum_register")
-        
-        cr_classical_register = ClassicalRegister(2, "classical_register")
-        qc = QuantumCircuit(qr0,cr_classical_register)`,
-    );
+    `from math import pi
+    from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile
+    from qiskit_aer import Aer
+
+    qr0 = QuantumRegister(2, "quantum_register")
+
+    cr_classical_register = ClassicalRegister(2, "classical_register")
+    qc = QuantumCircuit(qr0,cr_classical_register)`,
+);
     testUtil.correctOutputReceived(flow, givenInput, expectedOutput, done);
   });
 });

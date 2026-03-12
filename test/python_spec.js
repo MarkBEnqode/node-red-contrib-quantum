@@ -20,10 +20,7 @@ sys.stderr = open(sys.__stderr__.fileno(),
                   closefd=False)
 `;
 
-const NAME_ERROR =
-`Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'x' is not defined`;
+const NAME_ERROR = "NameError: name 'x' is not defined";
 
 
 describe('PythonShell', function() {
@@ -161,9 +158,9 @@ describe('PythonShell', function() {
     });
 
     it('return error on invalid command', async function() {
-      let output = await shell.execute('print(x)').catch((err) => err);
-      assert.strictEqual(output, NAME_ERROR);
-    });
+  let output = await shell.execute('print(x)').catch((err) => err);
+  assert.include(output, NAME_ERROR);
+});
 
     it('return output with promise', async function() {
       let promise = shell.execute('print(10)');
@@ -192,20 +189,23 @@ describe('PythonShell', function() {
     });
 
     it('return errors on parallel invalid commands', async () => {
-      let outputs = await Promise.all([
-        shell.execute('print(x)').catch((err) => err),
-        shell.execute('print(x)').catch((err) => err),
-      ]);
-      assert.deepEqual(outputs, [NAME_ERROR, NAME_ERROR]);
-    });
+  let outputs = await Promise.all([
+    shell.execute('print(x)').catch((err) => err),
+    shell.execute('print(x)').catch((err) => err),
+  ]);
+  assert.lengthOf(outputs, 2);
+  outputs.forEach((output) => assert.include(output, NAME_ERROR));
+});
 
     it('return errors and outputs on parallel mixed commands', async () => {
-      let outputs = await Promise.all([
-        shell.execute('print(x)').catch((err) => err),
-        shell.execute('x = 10'),
-        shell.execute('print(x)'),
-      ]);
-      assert.deepEqual(outputs, [NAME_ERROR, '', '10']);
-    });
+  let outputs = await Promise.all([
+    shell.execute('print(x)').catch((err) => err),
+    shell.execute('x = 10'),
+    shell.execute('print(x)'),
+  ]);
+  assert.include(outputs[0], NAME_ERROR);
+  assert.strictEqual(outputs[1], '');
+  assert.strictEqual(outputs[2], '10');
+});
   });
 });

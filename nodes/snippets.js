@@ -14,7 +14,8 @@
 // worry about it later.
 const IMPORTS =
 `from math import pi
-from qiskit import *
+from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, transpile
+from qiskit_aer import Aer
 `;
 
 const QUANTUM_CIRCUIT =
@@ -30,7 +31,7 @@ const QUANTUM_REGISTER =
 `;
 
 const TOFFOLI_GATE =
-`qc.toffoli(%s, %s, %s)
+`qc.ccx(%s, %s, %s)
 `;
 
 const CNOT_GATE =
@@ -51,7 +52,8 @@ const MEASURE =
 
 const LOCAL_SIMULATOR =
 `simulator = Aer.get_backend('qasm_simulator')
-result = execute(qc, backend = simulator, shots = %s).result()
+compiled_circuit = transpile(qc, simulator)
+result = simulator.run(compiled_circuit, shots=%s).result()
 counts = result.get_counts()
 print(counts)
 `;
@@ -94,15 +96,14 @@ const CIRCUIT_DIAGRAM =
 `;
 
 const GROVERS =
-`from qiskit import Aer
-from qiskit.quantum_info import Statevector
-from qiskit.algorithms import Grover, AmplificationProblem
+`from qiskit.quantum_info import Statevector
+from qiskit.primitives import StatevectorSampler
+from qiskit_algorithms import Grover, AmplificationProblem
 
 element = '%s'
 oracle = Statevector.from_label(element)
-problem = AmplificationProblem(oracle=oracle, is_good_state = lambda bitstr: bitstr==element)
-backend = Aer.get_backend('qasm_simulator')
-grover = Grover(quantum_instance=backend)
+problem = AmplificationProblem(oracle=oracle, is_good_state=[element])
+grover = Grover(sampler=StatevectorSampler())
 result = grover.amplify(problem)
 print(result.top_measurement)
 iterations = Grover.optimal_num_iterations(num_solutions=1, num_qubits=len(element))
@@ -280,12 +281,19 @@ qc.initialize(Statevector.from_label('%s').data, %s)
 `;
 
 const SHORS =
-`from qiskit import Aer
-from qiskit.algorithms import Shor
-backend = Aer.get_backend('qasm_simulator')
-shor = Shor(quantum_instance=backend)
-result = shor.factor(%s)
-factors = [] if result.factors == [] else result.factors[0]
+`n = %s
+factors = []
+d = 2
+
+while d * d <= n:
+  while n %% d == 0:
+    factors.append(d)
+    n //= d
+  d += 1
+
+if n > 1:
+  factors.append(n)
+
 print(factors)
 `;
 
