@@ -66,26 +66,5 @@ describe('QubitNode', function() {
     const givenInput = {payload: ''};
     const expectedOutput = {'0': 1};
     testUtil.correctOutputReceived(flow, givenInput, expectedOutput, done);
-//     nodeTestHelper.load(flow.nodes, flow.flow, function() {
-//   const inputNode = nodeTestHelper.getNode(flow.inputId);
-//   const outputNode = nodeTestHelper.getNode(flow.outputId);
-
-//   ['qc', 'cr', 'qr', 'qu', 'm1', 'si'].forEach((id) => {
-//     const node = nodeTestHelper.getNode(id);
-//     if (node) {
-//       node.on('call:error', (call) => {
-//         const err = call.firstArg;
-//         console.log('NODE ERROR:', id, err && err.message ? err.message : err);
-//       });
-//     }
-//   });
-
-//   outputNode.once('input', function(msg) {
-//     console.log('FINAL OUTPUT:', msg.payload);
-//     done();
-//   });
-
-//   inputNode.receive({payload: ''});
-// });
   });
 });
