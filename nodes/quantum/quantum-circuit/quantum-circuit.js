@@ -36,7 +36,7 @@ state.setPersistent('isCircuitReady', () => {
   }
 
   let event = state.get('quantumCircuitReadyEvent');
-  return new Promise((res, rej) => {
+  return new Promise((res, _rej) => {
     event.once('circuitReady', () => {
       state.setRuntime('circuitReady', true);
       res();

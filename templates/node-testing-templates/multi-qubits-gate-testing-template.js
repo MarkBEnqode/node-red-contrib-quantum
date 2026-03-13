@@ -20,14 +20,16 @@ describe('xyzGateNode', function() { // Replace with the imported node.
   });
 
   xit('load node', function(done) {
-    // Replace below with the imported node and the name of that node as it appears in registerType of the node's html file.
+    // Replace below with the imported node.
+// Use the name from registerType in the node's HTML file.
     testUtil.isLoaded(xyzGateNode, 'xyz-gate', done);
   });
 
   xit('pass qubit through gate', function(done) {
     flow.add('quantum-circuit', 'n0', [['n1'], ['n1'], ['n1']],
         {structure: 'qubits', outputs: '3', qbitsreg: '3', cbitsreg: '3'}); // Edit the circuit structure with the appropriate number of bits.
-    // Replace line below with the name of that node as it appears in registerType of the node's html file.
+    // Replace line below with the node name.
+// Use the name from registerType in the node's HTML file.
     // Use appropriate number of output wires and include any necessary default node properties.
     flow.add('xyz-gate', 'n1', [['n2'], ['n2'], ['n2']], {targetPosition: 'Upper'});
     flow.addOutput('n2');
@@ -56,7 +58,8 @@ describe('xyzGateNode', function() { // Replace with the imported node.
     flow.add('hadamard-gate', 'n2', [['n4']]);
     flow.add('not-gate', 'n3', [['n4']]);
     // Replace below with the name of the node as it appears in registerType of the node's html file
-    // and edit the appropriate number of output wires and add any necessary default node properties.
+    // Edit the output wires as needed.
+// Add any required default node properties.
     flow.add('xyz-gate', 'n4', [['n5'], ['n5'], ['n5']], {property: 'Value'});
     flow.addOutput('n5');
 
