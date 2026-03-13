@@ -99,7 +99,7 @@ state.setPersistent('isCircuitReady', () => {
             output[i].req = msg.req;
             output[i].res = msg.res;
           }
-        };
+        }
       } else { // If the user does not want to use registers
         // initialise qubit if binary string exists
         script += util.format(snippets.QUANTUM_CIRCUIT, node.qbitsreg + ', ' + node.cbitsreg);
@@ -130,7 +130,7 @@ state.setPersistent('isCircuitReady', () => {
             output[i].req = msg.req;
             output[i].res = msg.res;
           }
-        };
+        }
         state.del('binaryString');
       }
 

@@ -122,6 +122,6 @@ module.exports = function(RED) {
             });
       }
     });
-  };
+  }
   RED.nodes.registerType('histogram-simulator', HistogramSimulator);
 };

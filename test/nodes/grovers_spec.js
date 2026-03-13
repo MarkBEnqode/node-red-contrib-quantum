@@ -3,7 +3,8 @@ const testUtil = require('../test-util');
 const nodeTestHelper = testUtil.nodeTestHelper;
 const {FlowBuilder} = require('../flow-builder');
 const errors = require('../../nodes/errors');
-const assert = require('chai').assert;
+
+const flow = new FlowBuilder();
 
 describe('GroversNode', function() {
   beforeEach(function(done) {
@@ -11,6 +12,7 @@ describe('GroversNode', function() {
   });
 
   afterEach(function(done) {
+    flow.reset();
     nodeTestHelper.unload();
     nodeTestHelper.stopServer(done);
   });
@@ -20,18 +22,16 @@ describe('GroversNode', function() {
   });
 
   it('default name outputs correctly', function(done) {
-    flow = new FlowBuilder();
     flow.add('grovers', 'groversNode', []);
 
     nodeTestHelper.load(flow.nodes, flow.flow, function() {
-      let groversTestNode = nodeTestHelper.getNode('groversNode');
+      const groversTestNode = nodeTestHelper.getNode('groversNode');
       groversTestNode.should.have.property('name', 'grovers');
       done();
     });
   });
 
   it('return success output on valid input', function(done) {
-    flow = new FlowBuilder();
     flow.add('grovers', 'n1', [['n2']]);
     flow.addOutput('n2');
 
@@ -41,7 +41,6 @@ describe('GroversNode', function() {
   });
 
   it('should fail on invalid input', function(done) {
-    flow = new FlowBuilder();
     flow.add('grovers', 'n1', []);
 
     const givenInput = {payload: '11112'};

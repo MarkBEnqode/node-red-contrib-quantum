@@ -117,6 +117,6 @@ module.exports = function(RED) {
             });
       }
     });
-  };
+  }
   RED.nodes.registerType('bloch-sphere', BlochSphereNode);
 };
