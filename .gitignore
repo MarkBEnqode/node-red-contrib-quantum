@@ -136,3 +136,4 @@ env/
 
 # Local development notes
 dev/
+.nodered-test/
