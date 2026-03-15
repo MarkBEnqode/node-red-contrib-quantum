@@ -102,7 +102,7 @@ module.exports = function(RED) {
 
         // Run the Qiskit script in the python shell
         // If no error occur, send the qubit object as node output
-        await shell.execute(script, (err, data) => {
+        await shell.execute(script, (err, _data) => {
           if (err) {
             done(err);
           } else {

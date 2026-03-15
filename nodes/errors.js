@@ -69,7 +69,7 @@ function validateQubitInput(msg) {
   } else if (!keys.includes('register') || !keys.includes('qubit') || !keys.includes('structure')) {
     return new Error(NOT_QUBIT_OBJECT);
   } else return null;
-};
+}
 
 function validateRegisterInput(msg) {
   let keys = Object.keys(msg.payload);
@@ -80,7 +80,7 @@ function validateRegisterInput(msg) {
   } else if ((keys.includes('register') && typeof msg.payload.register !== 'number') || keys.includes('qubit')) {
     return new Error(NOT_REGISTER_OBJECT);
   } else return null;
-};
+}
 
 function validateGroversInput(msg) {
   const regex = new RegExp('^[0-1]{1,}$');
@@ -88,7 +88,7 @@ function validateGroversInput(msg) {
     return new Error(NOT_BIT_STRING);
   }
   return null;
-};
+}
 
 function validateQubitsFromSameCircuit(qubits) {
   let circuitId = qubits[0].circuitId;
@@ -107,7 +107,7 @@ function validateQubitsFromSameCircuit(qubits) {
   });
   if (!valid) return new Error(SAME_QUBIT_RECEIVED_TWICE);
   else return null;
-};
+}
 
 function validateRegisterStrucutre(structureInitialised, strucutreExpected) {
   let count = 0;
@@ -126,7 +126,7 @@ function validateRegisterStrucutre(structureInitialised, strucutreExpected) {
   } else {
     return [null, count];
   }
-};
+}
 
 function validateShorsInput(msg) {
   if (msg.payload < 3) {
@@ -139,7 +139,7 @@ function validateShorsInput(msg) {
     return new Error(INPUT_AN_INTEGER);
   }
   return null;
-};
+}
 
 module.exports = {
   NOT_QUANTUM_NODE,

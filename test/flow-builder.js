@@ -74,7 +74,7 @@ class FlowBuilder {
    * @param {Object.<string, string>} properties The properties of the node (optional).
   */
   add(name, id, wires, properties) {
-    if (!NODES.hasOwnProperty(name)) {
+    if (!Object.prototype.hasOwnProperty.call(NODES, name)) {
       throw new Error(`Failed to find node ${name}`);
     }
     let json = {id: id, wires: wires, type: name, name: name.replace(/-/g, ' ')};

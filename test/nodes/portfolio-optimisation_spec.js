@@ -1,8 +1,6 @@
 const portfolioOptNode = require('../../nodes/quantum-algorithms/portfolio-optimisation/portfolio-optimisation.js');
 const testUtil = require('../test-util');
 const nodeTestHelper = testUtil.nodeTestHelper;
-const assert = require('chai').assert;
-const errors = require('../../nodes/errors');
 const {FlowBuilder} = require('../flow-builder');
 
 const flow = new FlowBuilder();

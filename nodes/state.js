@@ -68,7 +68,7 @@ class State {
   */
   resetRuntime() {
     for (let prop in this.runtimeState) {
-      if (this.runtimeState.hasOwnProperty(prop)) {
+      if (Object.prototype.hasOwnProperty.call(this.runtimeState, prop)) {
         delete this.state[prop];
       }
     }
@@ -80,7 +80,7 @@ class State {
   */
   resetPersistent() {
     for (let prop in this.persistentState) {
-      if (this.persistentState.hasOwnProperty(prop)) {
+      if (Object.prototype.hasOwnProperty.call(this.persistentState, prop)) {
         delete this.state[prop];
       }
     }
@@ -103,7 +103,7 @@ class StateManager {
    * @return {State} The state object of the quantum circuit.
   */
   newState(id) {
-    if (!this.globalState.hasOwnProperty(id)) {
+    if (!Object.prototype.hasOwnProperty.call(this.globalState, id)) {
       this.globalState[id] = new State();
     }
     return this.globalState[id];

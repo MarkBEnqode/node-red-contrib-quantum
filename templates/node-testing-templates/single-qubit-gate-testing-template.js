@@ -20,7 +20,8 @@ describe('xyzGateNode', function() { // Replace with the imported node.
   });
 
   xit('load node', function(done) {
-    // Replace below with the imported node and the name of that node as it appears in registerType of the node's html file.
+    // Replace below with the imported node.
+// Use the name from registerType in the node's HTML file.
     testUtil.isLoaded(xyzGateNode, 'xyz-gate', done);
   });
 
@@ -39,9 +40,11 @@ describe('xyzGateNode', function() { // Replace with the imported node.
   });
 
   xit('execute command', function(done) {
-    let command = util.format(snippets.XYZ_GATE); // Replace with the necessary snippet and parameters for executing the node.
+    // Replace with the snippet and parameters needed to execute the node.
+let command = util.format(snippets.XYZ_GATE);
     flow.add('quantum-circuit', 'n0', [['n1']], {structure: 'qubits', outputs: '1', qbitsreg: '1', cbitsreg: '1'});
-    // Replace with the name of the node as it appears in registerType of the node's html file and add any necessary default node properties.
+    // Replace with the node name from registerType.
+// Add any required default node properties.
     flow.add('xyz-gate', 'n1', [['n2']]);
     flow.addOutput('n2');
 
