@@ -7,7 +7,7 @@
 
 
 # Dependencies list.
-$packages = @("qiskit", "matplotlib", "pylatexenc", "qiskit-finance", "qiskit-optimization")
+$packages = @("qiskit", "qiskit-aer", "qiskit-algorithms", "matplotlib", "pylatexenc", "qiskit-finance", "qiskit-optimization")
 
 # Use Windows paths by default.
 $venv="$((Get-Location).tostring())\venv"
