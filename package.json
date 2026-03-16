@@ -22,11 +22,15 @@
     "ibm"
   ],
   "files": [
-    "bin/",
-    "nodes/",
+    "nodes/**",
     "resources/quantum-computing/",
+    "bin/**",
     "AUTHORS",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "ARCHITECTURE.md",
+    "package.json"
   ],
   "scripts": {
     "start": "cross-env NODE_ENV=dev npx node-red",
@@ -94,5 +98,9 @@
   "overrides": {
     "tar": "7.5.11",
     "serialize-javascript": "7.0.4"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "restricted"
   }
 }
