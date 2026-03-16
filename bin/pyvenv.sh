@@ -4,25 +4,18 @@
 # Note that this script is designed to be run in POSIX-compatible environments
 # which use Bash.
 
-
 # Dependencies list.
 declare -a packages=("qiskit" "qiskit-aer" "qiskit-algorithms" "matplotlib" "pylatexenc" "qiskit-finance" "qiskit-optimization")
 
-# Check OS for paths.
 venv="$PWD/venv"
-if [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
-  python="python"
-  python_path="$venv/Scripts/python.exe"
-  pip_path="$venv/Scripts/pip.exe"
-else
-  python="python3"
-  python_path="$venv/bin/python"
-  pip_path="$venv/bin/pip"
-fi
 
-# Check if python is installed. If no, exit unsuccessfully.
-if ! command -v "$python" &>/dev/null; then
-  echo "Error: failed to find Python 3 in PATH"
+# Check if Python is installed. Prefer python3, but fall back to python.
+if command -v python3 &>/dev/null; then
+  python="python3"
+elif command -v python &>/dev/null; then
+  python="python"
+else
+  echo "Error: failed to find Python in PATH"
   exit 1
 fi
 
@@ -39,15 +32,15 @@ else
   echo "Using virtual environment at $venv"
 fi
 
-# Check that Python path exists. If not, exit unsuccessfully.
-if [[ ! -x "$python_path" ]]; then
-  echo "Error: failed to find $python_path"
-  exit 1
-fi
-
-# Check that pip path exists. If not, exit unsuccessfully.
-if [[ ! -x "$pip_path" ]]; then
-  echo "Error: failed to find $pip_path"
+# Resolve Python and pip paths based on the actual venv layout.
+if [[ -x "$venv/Scripts/python.exe" ]] && [[ -x "$venv/Scripts/pip.exe" ]]; then
+  python_path="$venv/Scripts/python.exe"
+  pip_path="$venv/Scripts/pip.exe"
+elif [[ -x "$venv/bin/python" ]] && [[ -x "$venv/bin/pip" ]]; then
+  python_path="$venv/bin/python"
+  pip_path="$venv/bin/pip"
+else
+  echo "Error: failed to find a usable Python environment inside $venv"
   exit 1
 fi
 
