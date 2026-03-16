@@ -1,11 +1,20 @@
 'use strict';
 
 const util = require('util');
-const isOnline = require('is-online');
+const dns = require('node:dns').promises;
 const snippets = require('../../snippets');
 const shell = require('../../python').PythonShell;
 const errors = require('../../errors');
 const logger = require('../../logger');
+
+async function hasInternetConnection() {
+  try {
+    await dns.lookup('api.quantum.ibm.com');
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
 
 module.exports = function(RED) {
   function IBMQuantumSystemNode(config) {
@@ -131,7 +140,7 @@ module.exports = function(RED) {
           script += util.format(snippets.IBMQ_SYSTEM_RESULT, node.shots);
         }
 
-        if (!await isOnline()) {
+        if (!await hasInternetConnection()) {
           node.status({
             fill: 'red',
             shape: 'dot',
