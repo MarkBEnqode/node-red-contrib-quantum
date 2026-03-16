@@ -118,7 +118,7 @@ The fork is functional, but there are important limitations to document:
 - `Shors` currently uses a compatibility fallback rather than a real modern Qiskit Shor implementation
 - IBM Quantum related behavior may require additional work depending on upstream API changes
 - Python and Qiskit package compatibility should be validated in each deployment environment
-- real editor/runtime validation in a live Node-RED 4.1.5 UI should still be completed as part of release validation
+- live editor/runtime validation has been completed for Node-RED 4.1.5 on Node.js 20, but should still be repeated in the final target staging environment before release
 
 ## Testing status
 
