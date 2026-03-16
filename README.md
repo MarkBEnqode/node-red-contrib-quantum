@@ -128,6 +128,19 @@ Current local validation baseline:
 - test suite passes
 - CI passes on Node 18 and Node 20
 
+
+## Live Runtime Validation
+
+The fork has been smoke-tested successfully in a live Node-RED 4.1.5 editor/runtime environment on Node.js 20.
+
+Validated manually:
+- all 27 nodes loaded in the palette
+- `quantum` category displayed 24 nodes
+- `quantum algorithms` category displayed 3 nodes
+- node edit dialogs opened correctly
+- deploy succeeded in the Node-RED editor
+- no startup or deploy-time deprecation warnings were observed during this validation
+
 ## Architecture
 
 See `ARCHITECTURE.md` for a higher-level description of the quantum-classical flow model, node interaction patterns, and Python execution boundaries.
