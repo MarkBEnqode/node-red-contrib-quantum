@@ -157,6 +157,36 @@ Recommended workflow:
 4. push branch and verify GitHub Actions
 5. merge only after CI passes
 
+## Release and internal publishing
+
+This package is intended to be published to an internal npm registry under the scoped name `@quantum-sec/node-red-contrib-quantum`.
+
+Current release baseline:
+
+- package name: `@quantum-sec/node-red-contrib-quantum`
+- version: `1.0.0-quantum-sec.1`
+- publish access: `restricted`
+- runtime package audit status: `npm audit --omit=dev` reports 0 vulnerabilities
+- remaining `npm audit` findings are currently low-severity dev-only issues in test tooling
+
+Before publishing:
+
+1. confirm the target internal registry URL for the `@quantum-sec` scope
+2. authenticate with the internal registry in the publishing environment
+3. run `npm run lint`
+4. run `npm test`
+5. run `npm pack --dry-run`
+6. verify staging validation for the target Node-RED 4.1.5 environment
+7. publish using the internal registry workflow approved by DevOps
+
+Important notes:
+
+- do not publish this package to the public npm registry
+- keep the `Shors` compatibility fallback documented in release notes and deployment notes
+- repeat live runtime validation in the final staging environment before production rollout
+- coordinate version bumps and release tagging with DevOps and platform owners
+
+
 ## Acknowledgements
 
 This project is based on the original `node-red-contrib-quantum` work by the upstream authors and contributors.
