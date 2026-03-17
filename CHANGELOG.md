@@ -1,3 +1,12 @@
+### v1.0.0-quantum-sec.1 - 17-03-2026
+- Forked and modernized package for Node-RED 4.1.5 and Node.js 18+
+- Updated test, lint, and CI toolchain for current supported environments
+- Restored and stabilized Python-backed test execution with modern Qiskit dependencies
+- Validated all 27 nodes in a live Node-RED 4.1.5 runtime on Node.js 20
+- Remediated runtime audit issues and hardened publish/package settings for internal scoped distribution
+- Updated package metadata, documentation, architecture notes, and DevOps handoff materials
+- Documented known limitation: Shors currently uses a compatibility fallback rather than a modern native Qiskit Shor implementation
+
 ### v0.4.0 - 12-09-2021
 - Added Portfolio Optimisation node
 - Added alternative Docker installation
