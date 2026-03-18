@@ -45,6 +45,14 @@
 6. confirm Python/Qiskit package versions in the deployment environment
 7. attach release/version metadata to deployment records
 
+## Current GitHub Packages blocker
+- npm authentication to `https://npm.pkg.github.com` works for the publishing user
+- publish dry-run succeeds against GitHub Packages
+- final publish is currently blocked by GitHub organization package permission:
+  - `403 Forbidden - permission_denied: create_package`
+- org owner must grant package creation/publish rights for the `@quantum-sec` scope, or publish from an account that already has that permission
+
+
 ## Recommended staging validation
 1. install the package from the internal registry
 2. confirm all 27 nodes appear in the palette
