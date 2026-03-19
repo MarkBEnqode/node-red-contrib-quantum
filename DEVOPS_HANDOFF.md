@@ -74,5 +74,5 @@
 
 ## Final release artifact
 - Git tag: `v1.0.0-quantum-sec.1`
-- Tarball: `enqode-node-red-contrib-quantum-1.0.0-quantum-sec.1.tgz`
-- SHA256: `bf82b350282605be699f0b0787945982be76753549584b3bdc45419d416eb4be`
+- Tarball: enqoding-node-red-contrib-quantum-1.0.0-quantum-sec.1.tgz
+- SHA256: 747713566f2afc104ace854a37f4b1829f9f2d4c0fae274bc3dd2864e7ac1494
