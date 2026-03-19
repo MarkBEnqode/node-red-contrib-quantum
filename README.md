@@ -1,4 +1,4 @@
-# @quantum-sec/node-red-contrib-quantum
+# @enqode/node-red-contrib-quantum
 
 [![Platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 [![CI](https://github.com/MarkBEnqode/node-red-contrib-quantum/actions/workflows/node.js.yml/badge.svg)](https://github.com/MarkBEnqode/node-red-contrib-quantum/actions/workflows/node.js.yml)
@@ -10,7 +10,7 @@ Quantum circuit and algorithm nodes for Node-RED 4.x security orchestration work
 This repository is an internally maintained fork of the upstream `node-red-contrib-quantum` project.
 
 - Upstream project: `node-red-quantum/node-red-contrib-quantum`
-- Fork namespace target: `@quantum-sec/node-red-contrib-quantum`
+- Fork namespace target: `@enqode/node-red-contrib-quantum`
 - Current fork version: `1.0.0-quantum-sec.1`
 
 This fork modernizes the project for Node-RED 4.1.5, Node.js 18+, updated linting and test tooling, current Python/Qiskit compatibility work, and CI validation on Node 18 and 20.
@@ -159,11 +159,11 @@ Recommended workflow:
 
 ## Release and internal publishing
 
-This package is intended to be published to an internal npm registry under the scoped name `@quantum-sec/node-red-contrib-quantum`.
+This package is intended to be published to an internal npm registry under the scoped name `@enqode/node-red-contrib-quantum`.
 
 Current release baseline:
 
-- package name: `@quantum-sec/node-red-contrib-quantum`
+- package name: `@enqode/node-red-contrib-quantum`
 - version: `1.0.0-quantum-sec.1`
 - publish access: `restricted`
 - runtime package audit status: `npm audit --omit=dev` reports 0 vulnerabilities
@@ -171,7 +171,7 @@ Current release baseline:
 
 Before publishing:
 
-1. confirm the target internal registry URL for the `@quantum-sec` scope
+1. confirm the target internal registry URL for the `@enqode` scope
 2. authenticate with the internal registry in the publishing environment
 3. run `npm run lint`
 4. run `npm test`

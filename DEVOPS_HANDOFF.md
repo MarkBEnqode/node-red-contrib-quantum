@@ -1,7 +1,7 @@
 # DevOps Handoff
 
 ## Package
-- Name: `@quantum-sec/node-red-contrib-quantum`
+- Name: `@enqode/node-red-contrib-quantum`
 - Version: `1.0.0-quantum-sec.1`
 - Target runtime: Node-RED `4.1.5`
 - Node.js requirement: `>=18.0.0` (validated on Node 18 and Node 20)
@@ -37,7 +37,7 @@
 - this limitation must remain documented in deployment/release notes
 
 ## Required DevOps actions
-1. configure the internal npm registry for the `@quantum-sec` scope
+1. configure the internal npm registry for the `@enqode` scope
 2. authenticate publishing environment to the internal registry
 3. publish approved build from `master`
 4. validate install from the internal registry in a clean Node-RED 4.1.5 environment
@@ -50,7 +50,7 @@
 - publish dry-run succeeds against GitHub Packages
 - final publish is currently blocked by GitHub organization package permission:
   - `403 Forbidden - permission_denied: create_package`
-- org owner must grant package creation/publish rights for the `@quantum-sec` scope, or publish from an account that already has that permission
+- org owner must grant package creation/publish rights for the `@enqode` scope, or publish from an account that already has that permission
 
 
 ## Recommended staging validation

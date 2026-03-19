@@ -2,7 +2,7 @@
 
 ## Overview
 
-`@quantum-sec/node-red-contrib-quantum` provides Node-RED nodes that let security orchestration flows build quantum circuits, execute quantum-inspired algorithms, and exchange results with classical workflow steps.
+`@enqode/node-red-contrib-quantum` provides Node-RED nodes that let security orchestration flows build quantum circuits, execute quantum-inspired algorithms, and exchange results with classical workflow steps.
 
 This fork modernizes the original upstream module for Node-RED 4.1.5, Node.js 18+/20, and current Python/Qiskit environments. The architecture keeps Node-RED as the orchestration layer while delegating quantum-specific execution to a Python-backed runtime boundary.
 
