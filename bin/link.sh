@@ -12,7 +12,7 @@ if ! command -v npm &>/dev/null; then
 fi
 
 # Set path variables.
-package='@enqode/node-red-contrib-quantum'
+package='@enqoding/node-red-contrib-quantum'
 repo_path="$PWD"
 red_path="$HOME/.node-red"
 
