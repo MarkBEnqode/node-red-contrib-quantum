@@ -157,34 +157,30 @@ Recommended workflow:
 4. push branch and verify GitHub Actions
 5. merge only after CI passes
 
-## Release and internal publishing
+## Release and public publishing
 
-This package is intended to be published to an internal npm registry under the scoped name `@enqoding/node-red-contrib-quantum`.
+This package can be published publicly to npm under the scoped name `@enqoding/node-red-contrib-quantum` for community use and Node-RED Flow Library listing.
 
-Current release baseline:
+Recommended publish settings:
 
-- package name: `@enqoding/node-red-contrib-quantum`
-- version: `1.0.0-quantum-sec.1`
-- publish access: `restricted`
-- runtime package audit status: `npm audit --omit=dev` reports 0 vulnerabilities
-- remaining `npm audit` findings are currently low-severity dev-only issues in test tooling
+- access: `public`
+- registry: `https://registry.npmjs.org`
 
 Before publishing:
 
-1. confirm the target internal registry URL for the `@enqoding` scope
-2. authenticate with the internal registry in the publishing environment
-3. run `npm run lint`
-4. run `npm test`
-5. run `npm pack --dry-run`
-6. verify staging validation for the target Node-RED 4.1.5 environment
-7. publish using the internal registry workflow approved by DevOps
+1. confirm the package name and version in `package.json`
+2. authenticate with npm in the publishing environment
+3. run `npm ci`
+4. run `npm run lint`
+5. run `npm test`
+6. run `npm pack --dry-run`
+7. publish with `npm publish`
 
-Important notes:
+Notes:
 
-- do not publish this package to the public npm registry
-- keep the `Shors` compatibility fallback documented in release notes and deployment notes
-- repeat live runtime validation in the final staging environment before production rollout
-- coordinate version bumps and release tagging with DevOps and platform owners
+- use scoped public publish settings for the `@enqoding` package
+- keep release credentials out of the repository and use environment or CI secrets only
+- keep the Shors compatibility fallback limitation documented in release notes and downstream docs
 
 
 ## Acknowledgements
