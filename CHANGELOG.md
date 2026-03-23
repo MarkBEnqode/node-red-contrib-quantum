@@ -1,3 +1,9 @@
+### v1.0.0-quantum-sec.2 - 23-03-2026
+- Fixed cross-platform install issue caused by published shell formatting in `bin/pyvenv.sh`.
+- Verified fresh package install from public npm on Windows.
+- Verified fresh package install on macOS using GitHub Actions.
+- Refreshed release documentation, tarball details, SHA256, and release tag alignment for `.2`.
+
 ### v1.0.0-quantum-sec.1 - 17-03-2026
 - Forked and modernized package for Node-RED 4.1.5 and Node.js 18+
 - Updated test, lint, and CI toolchain for current supported environments
