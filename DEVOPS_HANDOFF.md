@@ -2,7 +2,7 @@
 
 ## Package
 - Name: `@enqoding/node-red-contrib-quantum`
-- Version: `1.0.0-quantum-sec.1`
+- Version: `1.0.0-quantum-sec.2`
 - Target runtime: Node-RED `4.1.5`
 - Node.js requirement: `>=18.0.0` (validated on Node 18 and Node 20)
 
@@ -73,6 +73,6 @@
 - `.github/workflows/node.js.yml`
 
 ## Final release artifact
-- Git tag: `v1.0.0-quantum-sec.1`
-- Tarball: enqoding-node-red-contrib-quantum-1.0.0-quantum-sec.1.tgz
-- SHA256: 747713566f2afc104ace854a37f4b1829f9f2d4c0fae274bc3dd2864e7ac1494
+- Git tag: `v1.0.0-quantum-sec.2`
+- Tarball: enqoding-node-red-contrib-quantum-1.0.0-quantum-sec.2.tgz
+- SHA256: 8905105c2925e998aab87e8936a48175e7f80bbcac4ca73040a8799dcba525ce
