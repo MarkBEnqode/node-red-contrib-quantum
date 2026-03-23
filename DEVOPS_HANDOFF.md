@@ -45,12 +45,13 @@
 6. confirm Python/Qiskit package versions in the deployment environment
 7. attach release/version metadata to deployment records
 
-## Current GitHub Packages blocker
-- npm authentication to `https://npm.pkg.github.com` works for the publishing user
-- publish dry-run succeeds against GitHub Packages
-- final publish is currently blocked by GitHub organization package permission:
-  - `403 Forbidden - permission_denied: create_package`
-- org owner must grant package creation/publish rights for the `@enqoding` scope, or publish from an account that already has that permission
+## Current distribution status
+- version `1.0.0-quantum-sec.2` has been published successfully to GitHub Packages
+- version `1.0.0-quantum-sec.2` has been published successfully to public npm
+- public npm `latest` points to `1.0.0-quantum-sec.2`
+- fresh install was verified on Windows from public npm
+- fresh install was verified on macOS using GitHub Actions
+- Git tag `v1.0.0-quantum-sec.2` points to release commit `700dd9c`
 
 
 ## Recommended staging validation
