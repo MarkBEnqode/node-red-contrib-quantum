@@ -22,7 +22,7 @@ This fork modernizes the project for Node-RED 4.1.5, Node.js 18+, updated lintin
 | Node-RED | 4.1.5 |
 | Node.js | >= 18.0.0 |
 | Recommended Node.js | 20.x |
-| Python | 3.9+ |
+| Python | 3.10+ |
 | Tested in CI | Node 18, Node 20 |
 | Python-backed runtime | local venv created by postinstall |
 
@@ -43,7 +43,7 @@ The package currently exposes 27 Node-RED nodes through the `node-red` package m
 ### From a local clone
 
 1. Install Node.js 18 or later.
-2. Install Python 3.9 or later.
+2. Install Python 3.10 or later.
 3. Clone this repository.
 4. From the repository root, run `npm ci`.
 
