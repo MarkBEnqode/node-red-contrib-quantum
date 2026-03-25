@@ -10,8 +10,13 @@ const {PythonInteractive} = require('python-interactive');
 
 
 async function createVirtualEnvironment() {
+  if (os.platform() === 'win32') {
+    const psPath = path.resolve(__dirname + '/../bin/pyvenv.ps1');
+    return exec(`powershell -NoProfile -ExecutionPolicy Bypass -File "${psPath}"`);
+  }
+
   const bashPath = path.resolve(__dirname + '/../bin/pyvenv.sh');
-  return exec(`bash ${bashPath}`);
+  return exec(`bash "${bashPath}"`);
 }
 
 

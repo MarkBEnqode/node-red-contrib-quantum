@@ -45,7 +45,7 @@
     "rmvenv": "rm -r venv/",
     "unlink": "npm uninstall --prefix ~/.node-red/ @enqoding/node-red-contrib-quantum",
     "clean": "npm run rmlogs & npm run rmvenv & npm run unlink",
-    "postinstall": "npm run venv || npm run psvenv"
+    "postinstall": "node -e \"const os=require('os'); const {execSync}=require('child_process'); execSync(os.platform()==='win32' ? 'npm run psvenv' : 'npm run venv', {stdio:'inherit'});\""
   },
   "dependencies": {
     "python-interactive": "^0.3.2"

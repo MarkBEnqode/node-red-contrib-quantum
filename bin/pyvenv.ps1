@@ -18,7 +18,7 @@ $pip_path="$venv\Scripts\pip.exe"
 # Check if python is installed. If no, exit unsuccessfully.
 if (!(Get-Command $python -errorAction SilentlyContinue)) {
   "Error: failed to find $python in PATH"
-  Exit
+  Exit 1
 }
 
 # Check if virtual environment exists. If no, create it.
@@ -29,7 +29,7 @@ if (!(Test-Path -Path $venv)) {
     "Successfully created virtual environment"
   } else {
     "Error: failed to create virtual environment"
-    Exit
+    Exit 1
   }
 } else {
   "Using virtual environment at $venv"
@@ -38,13 +38,13 @@ if (!(Test-Path -Path $venv)) {
 # Check that Python path exists. If not, exit unsuccessfully.
 if (!(Get-Command $python_path -errorAction SilentlyContinue)) {
   "Error: failed to find $python_path"
-  Exit
+  Exit 1
 }
 
 # Check that pip path exists. If not, exit unsuccessfully.
 if (!(Get-Command $pip_path -errorAction SilentlyContinue)) {
   "Error: failed to find $pip_path"
-  Exit
+  Exit 1
 }
 
 # Install package dependencies.
