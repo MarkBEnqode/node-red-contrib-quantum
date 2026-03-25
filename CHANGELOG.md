@@ -1,3 +1,8 @@
+### v1.0.0-quantum-sec.3 - 25-03-2026
+- Fixed Windows virtual-environment creation during both postinstall and runtime by selecting the correct platform-specific setup script.
+- Updated PowerShell venv bootstrap to return proper non-zero exit codes on failure.
+- Updated documentation to reflect Python 3.10+ requirement for current Qiskit compatibility.
+
 ### v1.0.0-quantum-sec.2 - 23-03-2026
 - Fixed cross-platform install issue caused by published shell formatting in `bin/pyvenv.sh`.
 - Verified fresh package install from public npm on Windows.

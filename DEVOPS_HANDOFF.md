@@ -2,7 +2,7 @@
 
 ## Package
 - Name: `@enqoding/node-red-contrib-quantum`
-- Version: `1.0.0-quantum-sec.2`
+- Version: `1.0.0-quantum-sec.3`
 - Target runtime: Node-RED `4.1.5`
 - Node.js requirement: `>=18.0.0` (validated on Node 18 and Node 20)
 
@@ -16,7 +16,7 @@
 
 ## Python runtime requirements
 - repository-local `venv` is used
-- Python `3.9+` required
+- Python `3.10+` required
 - required Python packages:
   - `qiskit`
   - `qiskit-aer`

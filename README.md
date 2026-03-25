@@ -11,7 +11,7 @@ This repository is an internally maintained fork of the upstream `node-red-contr
 
 - Upstream project: `node-red-quantum/node-red-contrib-quantum`
 - Fork namespace target: `@enqoding/node-red-contrib-quantum`
-- Current fork version: `1.0.0-quantum-sec.2`
+- Current fork version: `1.0.0-quantum-sec.3`
 
 This fork modernizes the project for Node-RED 4.1.5, Node.js 18+, updated linting and test tooling, current Python/Qiskit compatibility work, and CI validation on Node 18 and 20.
 

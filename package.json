@@ -1,6 +1,6 @@
 {
   "name": "@enqoding/node-red-contrib-quantum",
-  "version": "1.0.0-quantum-sec.2",
+  "version": "1.0.0-quantum-sec.3",
   "description": "Quantum circuit and algorithm nodes for Node-RED 4.x security orchestration workflows",
   "author": "Louis Lefevre",
   "license": "Apache-2.0",
