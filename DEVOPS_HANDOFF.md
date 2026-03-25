@@ -47,11 +47,11 @@
 
 ## Current distribution status
 - version `1.0.0-quantum-sec.2` has been published successfully to GitHub Packages
-- version `1.0.0-quantum-sec.2` has been published successfully to public npm
-- public npm `latest` points to `1.0.0-quantum-sec.2`
+- version `1.0.0-quantum-sec.3` has been published successfully to public npm
+- public npm `latest` points to `1.0.0-quantum-sec.3`
 - fresh install was verified on Windows from public npm
 - fresh install was verified on macOS using GitHub Actions
-- Git tag `v1.0.0-quantum-sec.2` points to release commit `700dd9c`
+- Git tag `v1.0.0-quantum-sec.3` points to release commit `c0313ac`
 
 
 ## Recommended staging validation
@@ -74,6 +74,6 @@
 - `.github/workflows/node.js.yml`
 
 ## Final release artifact
-- Git tag: `v1.0.0-quantum-sec.2`
-- Tarball: enqoding-node-red-contrib-quantum-1.0.0-quantum-sec.2.tgz
-- SHA256: 8905105c2925e998aab87e8936a48175e7f80bbcac4ca73040a8799dcba525ce
+- Git tag: `v1.0.0-quantum-sec.3`
+- Tarball: enqoding-node-red-contrib-quantum-1.0.0-quantum-sec.3.tgz
+- SHA256: 45886dceef58141ddeca2fe9350da74730b0752c6fd96704472dcc6a3abc49c9
